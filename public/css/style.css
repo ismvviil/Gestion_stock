@@ -1,0 +1,30 @@
+/* INPUT  */
+input,
+textarea,
+select {
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.radio {
+  margin-bottom: 10px;
+  width: 20px;
+}
+button {
+  background-color: rgb(6, 183, 233);
+  color: white;
+  width: 150px;
+  height: 30px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  border-radius: 5px;
+}
+label {
+  display: block;
+}
+form{
+    width: 100%;
+}
