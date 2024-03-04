@@ -19,10 +19,14 @@ if (
         $_POST['date_expiration']
     ));
     if ($req->rowCount() != 0) {
-        echo "Article ajouter avec succés.";
+        $_SESSION['message']['text'] = "Article ajouté avec succès";
+        $_SESSION['message']['type'] = "success";
     } else {
-        echo "Une erreur s'est produite lors de l'ajout de l'article";
+        $_SESSION['message']['text'] = "Une erreur s'est produite lors de l'ajout de l'article";
+        $_SESSION['message']['type'] = "danger";
     }
 } else {
-    echo "Une informations obligatoire non rensignée !";
+    $_SESSION['message']['text'] = "Une information obligatoire non renseignée ?";
+    $_SESSION['message']['type'] = "danger";
 }
+header('Location:../vue/article.php');
