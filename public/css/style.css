@@ -195,6 +195,15 @@ nav .profile-details i {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   margin: 5px;
 }
+.overview-boxes .box form button {
+  cursor: pointer;
+  padding: auto;
+  margin: auto;
+  width: 100%;
+}
+.overview-boxes .box form button:hover {
+  background-color: #081d45;
+}
 .overview-boxes .box-topic {
   font-size: 20px;
   font-weight: 500;
@@ -390,6 +399,29 @@ nav .profile-details i {
     width: calc(100% / 2 - 15px);
     margin-bottom: 15px;
   }
+  .overview-boxes {
+    display: flex;
+    flex-direction: column;
+  }
+  .overview-boxes .box {
+    width: 100%;
+  }
+  /* .overview-boxes .box2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  table.mtable th {
+    font-size: 15px;
+    padding: 3px;
+  }
+
+  .mtable td {
+    padding: 0px;
+    font-size: 13px;
+    margin: 0;
+  }
 }
 @media (max-width: 700px) {
   nav .sidebar-button .dashboard,
@@ -412,6 +444,18 @@ nav .profile-details i {
   }
   .sidebar.active ~ .home-section nav .profile-details {
     display: none;
+  }
+  table.mtable th {
+    font-size: 7px;
+    padding: 0px;
+    text-align: center;
+    padding: 10px 5px;
+  }
+
+  .mtable td {
+    padding: 0px;
+    font-size: 8px;
+    text-align: center;
   }
 }
 @media (max-width: 400px) {
@@ -488,7 +532,6 @@ form {
 table.mtable {
   width: 100%;
   border-collapse: collapse;
-  width: 100%;
   border: 1px solid #ddd;
 }
 
@@ -503,7 +546,7 @@ table.mtable tr:nth-child(even) {
   background: #f2f2f2;
 }
 table.mtable td {
-  padding: 10px;
+  padding: 5px;
 }
 /* List styles */
 ul.mtable,
@@ -522,4 +565,9 @@ ol.mtable li {
 ul.mtable li:nth-child(even),
 ol.mtable li:nth-child(even) {
   background: #f2f2f2;
+}
+
+.box .form input,
+.box .form select {
+  padding: 5px;
 }
