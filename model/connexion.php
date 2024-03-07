@@ -1,7 +1,7 @@
 <?php
 session_start();
 $nom_server = "localhost";
-$nom_bd = "GS";
+$nom_bd = "gs";
 $utilsateur = "root";
 $pass = "abdessamad69";
 try {

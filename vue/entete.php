@@ -16,8 +16,8 @@ session_start();
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <i class="bx bxl-c-plus-plus"></i>
-            <span class="logo_name">D-CLIC</span>
+            <img src="../public/img/kangustock-favicon-black.png" alt="">
+            <span class="logo_name">KASOUFI</span>
         </div>
         <ul class="nav-links">
             <li>
@@ -100,7 +100,7 @@ session_start();
             </div>
             <div class="profile-details">
                 <!--<img src="images/profile.jpg" alt="">-->
-                <span class="admin_name">Komche</span>
+                <span class="admin_name">ALAMI</span>
                 <i class="bx bx-chevron-down"></i>
             </div>
         </nav>
