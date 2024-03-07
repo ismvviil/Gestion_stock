@@ -1,9 +1,9 @@
 <?php
 session_start();
 $nom_server = "localhost";
-$nom_bd = "gs";
+$nom_bd = "gestion_stock";
 $utilsateur = "root";
-$pass = "abdessamad69";
+$pass = "5967";
 try {
     $connexion = new PDO("mysql:host=$nom_server;dbname=$nom_bd", $utilsateur, $pass);
     $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
