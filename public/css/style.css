@@ -571,3 +571,6 @@ ol.mtable li:nth-child(even) {
 .box .form select {
   padding: 5px;
 }
+.box2 {
+  width: 100%;
+}

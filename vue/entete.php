@@ -17,51 +17,53 @@ session_start();
     <div class="sidebar">
         <div class="logo-details">
             <i class="bx bxl-c-plus-plus"></i>
-            <span class="logo_name">D-CLIC</span>
+            <!-- <span class="logo_name">D-CLIC</span> -->
+
         </div>
         <ul class="nav-links">
             <li>
-                <a href="dashboard.php" class="active">
+                <a href="dashboard.php" class=".nav-link">
                     <i class="bx bx-grid-alt"></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="article.php">
+                <a href="client.php" class=".nav-link">
+                    <i class="bx bx-user"></i>
+                    <span class="links_name">Client</span>
+                </a>
+            </li>
+            <li>
+                <a href="article.php" class=".nav-link">
                     <i class="bx bx-box"></i>
                     <span class="links_name">Article</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" class=".nav-link">
                     <i class="bx bx-list-ul"></i>
-                    <span class="links_name">Commandes</span>
+                    <span class="links_name">Ventes</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" class=".nav-link">
                     <i class="bx bx-pie-chart-alt-2"></i>
-                    <span class="links_name">Analyses</span>
+                    <span class="links_name">Fournisseur</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" class=".nav-link">
                     <i class="bx bx-coin-stack"></i>
                     <span class="links_name">Stock</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" class=".nav-link">
                     <i class="bx bx-book-alt"></i>
                     <span class="links_name">Tout les commmandes</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class="bx bx-user"></i>
-                    <span class="links_name">Utilisateur</span>
-                </a>
-            </li>
+           
             <!-- <li>
           <a href="#">
             <i class="bx bx-message" ></i>

@@ -42,9 +42,11 @@ if (!empty($_GET["id"])) {
                         <option <?= !empty($_GET["id"]) && $article["categorie"] == "Ordinateur" ?  "selected" : "" ?> value="Ordinateur">Ordinateur</option>
                         <option <?= !empty($_GET["id"]) && $article["categorie"] == "Imprimant" ?  "selected" : "" ?> value="Imprimante">Imprimante</option>
                         <option <?= !empty($_GET["id"]) && $article["categorie"] == "Accessoire" ?  "selected" : "" ?> value="Accessoire">Accessoire</option>
+                        <option <?= !empty($_GET["id"]) && $article["categorie"] == "Téléphone" ?  "selected" : "" ?> value="Téléphone">Téléphone</option>
                     </select>
 
                     <label for="quantite">Quantité</label>
+                    
                     <input value="<?= !empty($_GET["id"]) ?  $article["quantite"] : "" ?>" type="text" name="quantite" id="quantite" placeholder="Veuillez saisir la quantité" />
 
                     <label for="prix_unitaire">Prix unitaire</label>
@@ -95,8 +97,6 @@ if (!empty($_GET["id"])) {
                         }
                     }
                     ?>
-
-
                 </table>
             </div>
 
