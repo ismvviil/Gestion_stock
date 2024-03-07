@@ -16,9 +16,8 @@ session_start();
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <i class="bx bxl-c-plus-plus"></i>
-            <!-- <span class="logo_name">D-CLIC</span> -->
-
+            <img src="../public/img/kangustock-favicon-black.png" alt="">
+            <span class="logo_name">KASOUFI</span>
         </div>
         <ul class="nav-links">
             <li>
@@ -63,7 +62,7 @@ session_start();
                     <span class="links_name">Tout les commmandes</span>
                 </a>
             </li>
-           
+
             <!-- <li>
           <a href="#">
             <i class="bx bx-message" ></i>
