@@ -9,7 +9,8 @@
                     <span class="text">Depuis hier</span>
                 </div>
             </div>
-            <i class="bx bx-cart-alt cart"></i>
+            <!-- <i class="bx bx-cart-alt cart"></i> -->
+            <i class="fa fa-cart-plus" style="font-size:36px; color:lightgreen"></i>
         </div>
         <div class="box">
             <div class="right-side">
@@ -20,7 +21,8 @@
                     <span class="text">Depuis hier</span>
                 </div>
             </div>
-            <i class="bx bxs-cart-add cart two"></i>
+            <!-- <i class="bx bxs-cart-add cart two"></i> -->
+            <i class="fa fa-cart-arrow-down" style="font-size:36px ; color:lightblue"></i>
         </div>
         <div class="box">
             <div class="right-side">
@@ -31,7 +33,8 @@
                     <span class="text">Depuis hier</span>
                 </div>
             </div>
-            <i class="bx bx-cart cart three"></i>
+            <!-- <i class="bx bx-cart cart three"></i> -->
+            <i class="fa fa-dollar" style="font-size:36px ; margin-left:5px ; color:lightgreen"></i>
         </div>
         <div class="box">
             <div class="right-side">
@@ -42,7 +45,8 @@
                     <span class="text">Aujourd'hui</span>
                 </div>
             </div>
-            <i class="bx bxs-cart-download cart four"></i>
+            <!-- <i class="bx bxs-cart-download cart four"></i> -->
+            <i class="fa fa-line-chart" style="font-size:36px ; margin-left:5px ; color:lightblue"></i>
         </div>
     </div>
 

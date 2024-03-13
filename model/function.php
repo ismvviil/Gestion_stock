@@ -29,3 +29,23 @@ function getClient($id = null)
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+
+function getVente($id = null)
+{
+    if (!empty($id)) {
+        $sql = "SELECT nom_article, nom , prenom , v.quantite , prix , date_vente FROM client
+        AS c , vente AS v , article AS a WHERE
+        v.id_article = a.id  AND v.id_client = c.id
+        AND v.id = ?";
+        $req = $GLOBALS["connexion"]->prepare($sql);
+        $req->execute(array($id));
+        return $req->fetch();
+    } else {
+        $sql = "SELECT nom_article, nom , prenom , v.quantite , prix , date_vente FROM client
+        AS c , vente AS v , article AS a WHERE
+        v.id_article = a.id  AND v.id_client = c.id";
+        $req = $GLOBALS["connexion"]->prepare($sql);
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
