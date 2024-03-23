@@ -1,6 +1,8 @@
 <?php
 include "connexion.php";
 include_once "function.php";
+require "../auth.php";
+
 // if (session_status() === PHP_SESSION_NONE) {
 //     session_start();
 // }

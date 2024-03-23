@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 $nom_server = "localhost";
 $nom_bd = "gestion_stock";
 $utilsateur = "root";

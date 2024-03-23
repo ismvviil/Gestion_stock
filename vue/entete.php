@@ -1,12 +1,23 @@
 <?php
-session_start();
+// session_start();
+require "../auth.php";
+include_once "../model/function.php";
+
+if (isset($_SESSION['login'])) {
+    $login = $_SESSION['login'];
+    // echo $login;
+} else {
+    $login = "Inkonnu";
+    // echo $login;
+};
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
 <head>
     <meta charset="UTF-8" />
-    <title>Admin Dashboard</title>
+    <title><?php echo  ucfirst(str_replace(".php", "", basename($_SERVER["PHP_SELF"])));
+            ?></title>
     <link rel="stylesheet" href="../public/css/style.css" />
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
@@ -15,81 +26,58 @@ session_start();
 </head>
 
 <body>
-    <div class="sidebar">
+    <div class="sidebar hidden-print">
         <div class="logo-details">
             <img src="../public/img/kangustock-favicon-black.png" alt="">
             <span class="logo_name">KASOUFI</span>
         </div>
         <ul class="nav-links">
             <li>
-                <a href="dashboard.php" class=".nav-link">
+                <a href="dashboard.php" class=".nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : '' ?>">
                     <i class="bx bx-grid-alt"></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="vente.php" class=".nav-link">
+                <a href="vente.php" class=".nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'vente.php' ? 'active' : '' ?>">
                     <i class='bx bx-shopping-bag'></i>
                     <span class="links_name">Vente</span>
                 </a>
             </li>
             <li>
-                <a href="client.php" class=".nav-link">
+                <a href="client.php" class=".nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'client.php' ? 'active' : '' ?>">
                     <i class="bx bx-user"></i>
                     <span class="links_name">Client</span>
                 </a>
             </li>
+
             <li>
-                <a href="article.php" class=".nav-link">
+                <a href="article.php" class=".nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'article.php' ? 'active' : '' ?>">
                     <i class="bx bx-box"></i>
                     <span class="links_name">Article</span>
                 </a>
             </li>
             <li>
-                <a href="#" class=".nav-link">
-                    <i class="bx bx-list-ul"></i>
-                    <span class="links_name">Ventes</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class=".nav-link">
-                    <i class="bx bx-pie-chart-alt-2"></i>
+                <a href="fournisseur.php" class=".nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'fournisseur.php' ? 'active' : '' ?>">
+                    <i class="bx bx-user"></i>
                     <span class="links_name">Fournisseur</span>
                 </a>
             </li>
             <li>
-                <a href="#" class=".nav-link">
-                    <i class="bx bx-coin-stack"></i>
-                    <span class="links_name">Stock</span>
+                <a href="commande.php" class=".nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'commande.php' ? 'active' : '' ?>">
+                    <i class="bx bx-list-ul"></i>
+                    <span class="links_name">Commandes</span>
                 </a>
             </li>
             <li>
-                <a href="#" class=".nav-link">
-                    <i class="bx bx-book-alt"></i>
-                    <span class="links_name">Tout les commmandes</span>
+                <a href="categorie.php" class=".nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'categorie.php' ? 'active' : '' ?>">
+                    <i class='bx bx-category'></i>
+                    <span class="links_name">Catégorie</span>
                 </a>
             </li>
 
-            <!-- <li>
-          <a href="#">
-            <i class="bx bx-message" ></i>
-            <span class="links_name">Messages</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bx bx-heart" ></i>
-            <span class="links_name">Favrorites</span>
-          </a>
-        </li> -->
-            <li>
-                <a href="#">
-                    <i class="bx bx-cog"></i>
-                    <span class="links_name">Configuration</span>
-                </a>
-            </li>
             <li class="log_out">
-                <a href="#">
+                <a href="../deconnexion.php">
                     <i class="bx bx-log-out"></i>
                     <span class="links_name">Déconnexion</span>
                 </a>
@@ -97,18 +85,15 @@ session_start();
         </ul>
     </div>
     <section class="home-section">
-        <nav>
+        <nav class="hidden-print nav-top">
             <div class="sidebar-button">
                 <!-- <i class="bx bx-menu sidebarBtn"></i> -->
-                <span class="dashboard">Dashboard</span>
-            </div>
-            <div class="search-box">
-                <input type="text" placeholder="Recherche..." />
-                <i class="bx bx-search"></i>
+                <span class="dashboard" style="margin-left: 100px;"><?php echo  ucfirst(str_replace(".php", "", basename($_SERVER["PHP_SELF"])));
+                                                                    ?></span>
             </div>
             <div class="profile-details">
                 <!--<img src="images/profile.jpg" alt="">-->
-                <span class="admin_name">ALAMI</span>
-                <i class="bx bx-chevron-down"></i>
+                <span class="admin_name"><?php echo $login ?></span>
+                <!-- <i class="bx bx-chevron-down"></i> -->
             </div>
         </nav>

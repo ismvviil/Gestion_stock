@@ -3,7 +3,7 @@
         <div class="box">
             <div class="right-side">
                 <div class="box-topic">Commande</div>
-                <div class="number">40,876</div>
+                <div class="number"><?php echo getAllCommande()['nbre'] ?></div>
                 <div class="indicator">
                     <i class="bx bx-up-arrow-alt"></i>
                     <span class="text">Depuis hier</span>
@@ -15,7 +15,7 @@
         <div class="box">
             <div class="right-side">
                 <div class="box-topic">Vente</div>
-                <div class="number">38,876</div>
+                <div class="number"><?php echo getAllVente()['nbre'] ?></div>
                 <div class="indicator">
                     <i class="bx bx-up-arrow-alt"></i>
                     <span class="text">Depuis hier</span>
@@ -26,20 +26,19 @@
         </div>
         <div class="box">
             <div class="right-side">
-                <div class="box-topic">Profit</div>
-                <div class="number">12,876 F</div>
+                <div class="box-topic">Nombre Article</div>
+                <div class="number"><?php echo getAllArticle()['nbre'] ?></div>
                 <div class="indicator">
                     <i class="bx bx-up-arrow-alt"></i>
                     <span class="text">Depuis hier</span>
                 </div>
             </div>
-            <!-- <i class="bx bx-cart cart three"></i> -->
-            <i class="fa fa-dollar" style="font-size:36px ; margin-left:5px ; color:lightgreen"></i>
+            <i class="bx bx-store-alt" style="font-size:40px ; margin-left:5px ; color:lightgreen"></i>
         </div>
         <div class="box">
             <div class="right-side">
-                <div class="box-topic">Revenu</div>
-                <div class="number">11,086</div>
+                <div class="box-topic">Chiffre d'affaires</div>
+                <div class="number"><?php echo number_format(getCA()['prix']) ?> DH</div>
                 <div class="indicator">
                     <i class="bx bx-down-arrow-alt down"></i>
                     <span class="text">Aujourd'hui</span>
@@ -52,119 +51,72 @@
 
     <div class="sales-boxes">
         <div class="recent-sales box">
-            <div class="title">Vente recentes</div>
+            <div class="title" style="text-align: center; font-size:30px;">Vente recentes</div>
+            <?php
+            $vente = getLastVente();
+            ?>
             <div class="sales-details">
                 <ul class="details">
                     <li class="topic">Date</li>
-                    <li><a href="#">02 Jan 2021</a></li>
-                    <li><a href="#">02 Jan 2021</a></li>
-                    <li><a href="#">02 Jan 2021</a></li>
-                    <li><a href="#">02 Jan 2021</a></li>
-                    <li><a href="#">02 Jan 2021</a></li>
-                    <li><a href="#">02 Jan 2021</a></li>
-                    <li><a href="#">02 Jan 2021</a></li>
+                    <?php
+
+                    if (!empty($vente) && is_array($vente)) {
+                        foreach ($vente as $key => $val) {
+                            echo '<li><a href="#">' . date('d M Y', strtotime($val['date_vente'])) . '</a></li>';
+                        }
+                    }
+                    ?>
                 </ul>
                 <ul class="details">
                     <li class="topic">Client</li>
-                    <li><a href="#">Abdoul Razak</a></li>
-                    <li><a href="#">Abdel Nasser</a></li>
-                    <li><a href="#">Maman Sani</a></li>
-                    <li><a href="#">Narouwa</a></li>
-                    <li><a href="#">Ishaka</a></li>
-                    <li><a href="#">Abdoullah</a></li>
-                    <li><a href="#">Adam</a></li>
-                    <li><a href="#">Komche</a></li>
-                    <li><a href="#">Adamou</a></li>
+                    <?php
+                    if (!empty($vente) && is_array($vente)) {
+                        foreach ($vente as $key => $val) {
+                            echo '<li><a href="#">' . $val['nom'] . " " . $val['prenom'] . '</a></li>';
+                        }
+                    }
+                    ?>
                 </ul>
                 <ul class="details">
                     <li class="topic">Produit</li>
-                    <li><a href="#">Ordinateur</a></li>
-                    <li><a href="#">iPhone</a></li>
-                    <li><a href="#">Returned</a></li>
-                    <li><a href="#">Ordinateur</a></li>
-                    <li><a href="#">iPhone</a></li>
-                    <li><a href="#">Returned</a></li>
-                    <li><a href="#">Ordinateur</a></li>
-                    <li><a href="#">iPhone</a></li>
-                    <li><a href="#">Ordinateur</a></li>
+                    <?php
+                    if (!empty($vente) && is_array($vente)) {
+                        foreach ($vente as $key => $val) {
+                            echo '<li><a href="#">' . $val['nom_article'] . '</a></li>';
+                        }
+                    }
+                    ?>
                 </ul>
                 <ul class="details">
                     <li class="topic">Prix</li>
-                    <li><a href="#">204.98 F</a></li>
-                    <li><a href="#">24.55 F</a></li>
-                    <li><a href="#">25.88 F</a></li>
-                    <li><a href="#">170.66 F</a></li>
-                    <li><a href="#">56.56 F</a></li>
-                    <li><a href="#">44.95 F</a></li>
-                    <li><a href="#">67.33 F</a></li>
-                    <li><a href="#">23.53 F</a></li>
-                    <li><a href="#">46.52 F</a></li>
+                    <?php
+                    if (!empty($vente) && is_array($vente)) {
+                        foreach ($vente as $key => $val) {
+                            echo '<li><a href="#">' . number_format($val['prix'], 0, ',', " ")  . ' DH</a></li>';
+                        }
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="button">
-                <a href="#">Voir Tout</a>
+                <a href="vente.php">Voir Tout</a>
             </div>
         </div>
         <div class="top-sales box">
-            <div class="title">Produit le plus vendu</div>
+            <div class="title" style="text-align: center; font-size:30px;">Top Article</div>
+            <?php
+            $article = getTopArticle();
+            ?>
             <ul class="top-sales-details">
-                <li>
-                    <a href="#">
-                        <!--<img src="images/sunglasses.jpg" alt="">-->
-                        <span class="product">Ordinateur</span>
-                    </a>
-                    <span class="price">1107 F</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <!--<img src="images/jeans.jpg" alt="">-->
-                        <span class="product">PC</span>
-                    </a>
-                    <span class="price">1567 F</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <!-- <img src="images/nike.jpg" alt="">-->
-                        <span class="product">Chaussure</span>
-                    </a>
-                    <span class="price">1234 F</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <!--<img src="images/scarves.jpg" alt="">-->
-                        <span class="product">Pantalon</span>
-                    </a>
-                    <span class="price">2312 F</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <!--<img src="images/blueBag.jpg" alt="">-->
-                        <span class="product">Samsung</span>
-                    </a>
-                    <span class="price">1456 F</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <!--<img src="images/bag.jpg" alt="">-->
-                        <span class="product">iPhone</span>
-                    </a>
-                    <span class="price">2345 F</span>
-                </li>
+                <?php
+                foreach ($article as $key => $value) {
+                    echo '<li>';
+                    echo '<a href="#"><span class="product" > ' . $value["nom_article"] . '</span></a>';
+                    echo '<span class="price" > ' .  number_format($value['prix'], 0, ',', " ") . ' DH</span>';
+                    echo '</li>';
+                }
 
-                <li>
-                    <a href="#">
-                        <!--<img src="images/addidas.jpg" alt="">-->
-                        <span class="product">iPhone X</span>
-                    </a>
-                    <span class="price">2345 F</span>
-                </li>
-                <li>
-                    <a href="#">
-                        <!--<img src="images/shirt.jpg" alt="">-->
-                        <span class="product">TShirt</span>
-                    </a>
-                    <span class="price">1245 F</span>
-                </li>
+                ?>
             </ul>
         </div>
     </div>

@@ -1,6 +1,7 @@
 <?php
 // Assuming you've started the session before this point
 include_once '../model/function.php';
+require "../auth.php";
 
 
 // Check for session messages and reset them

@@ -1,6 +1,7 @@
 <?php
 // Assuming you've started the session before this point
 include_once '../model/function.php';
+require "../auth.php";
 
 
 // Check for session messages and reset them
@@ -100,7 +101,10 @@ if (!empty($_GET["id"])) {
                                 <td><?= $value["quantite"] ?></td>
                                 <td><?= $value["prix"] ?> DH</td>
                                 <td><?= date('d/m/Y H:i:s', strtotime($value["date_vente"])) ?></td>
-                                <!-- <td><a href="?id=<?= $value["id"] ?>"><i class='bx bx-edit-alt'></i></a></td> -->
+                                <td>
+                                    <a href="recuVente.php?id=<?= $value["id"] ?>"><i class='bx bx-receipt'></i></a>
+                                    <a onclick="annulerVente(<?= $value['id'] ?> , <?= $value['idArticle'] ?> , <?= $value['quantite'] ?> )" style="color:red"><i class='bx bx-stop-circle'></i></a>
+                                </td>
                             </tr>
                     <?php
                         }
@@ -120,6 +124,12 @@ if (!empty($_GET["id"])) {
 </html> -->
 
     <script>
+        function annulerVente(idVente, idArticle, quantite) {
+            if (confirm("Voulez-vous vraiment annuler cette vente ?")) {
+                window.location.href = '../model/annulerVente.php?idVente=' + idVente + '&idArticle=' + idArticle + '&quantite=' + quantite;
+            }
+        }
+
         function setPrix() {
             var article = document.querySelector('#id_article');
             var quantite = document.querySelector('#quantite');
